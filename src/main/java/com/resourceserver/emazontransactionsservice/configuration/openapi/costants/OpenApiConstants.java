@@ -1,4 +1,4 @@
-package com.resourceserver.emazontransactionsservice.ports.driving.constants;
+package com.resourceserver.emazontransactionsservice.configuration.openapi.costants;
 
 public final class OpenApiConstants {
 
@@ -11,8 +11,8 @@ public final class OpenApiConstants {
         throw new IllegalStateException();
     }
 
-    public static final String OPENAPI_ADD_SUPPLY_SUMMARY = "Add a new supply transaction";
-    public static final String OPENAPI_ADD_SUPPLY_DESCRIPTION = "Endpoint to add a new supply, which updates the stock of the specified article.";
+    public static final String OPENAPI_ADD_SUPPLY_SUMMARY = "Initiate supply transaction orchestration";
+    public static final String OPENAPI_ADD_SUPPLY_DESCRIPTION = "Endpoint to add a new supply Transaction, which updates the stock of the specified article.";
     public static final String SUPPLY_ADDED = "The supply has been successfully added, and the article stock has been updated.";
     public static final String OPENAPI_MEDIA_TYPE_JSON = "application/json";
     public static final String INVALID_INPUT = "The provided input is invalid. Please verify the article ID and quantity.";

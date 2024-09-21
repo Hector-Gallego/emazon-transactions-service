@@ -4,14 +4,15 @@ import com.resourceserver.emazontransactionsservice.domain.model.Supply;
 
 import java.time.LocalDateTime;
 
-public class SupplyDataTest {
+public class SupplyDataTestFactory {
 
     public static Supply createInvalidSupply(){
         return new Supply(
                 1L,
-                "",
-                -1,
+                -1L,
                 -10,
+                "",
+                -1L,
                 LocalDateTime.now()
         );
     }
@@ -19,9 +20,10 @@ public class SupplyDataTest {
     public static Supply createValidSupply(){
         return new Supply(
                 1L,
-                "Add Supply",
-                1,
+                1L,
                 10,
+                "Name article",
+                1L,
                 LocalDateTime.now()
         );
     }

@@ -1,12 +1,12 @@
 package com.resourceserver.emazontransactionsservice.ports.driving.controller;
 
-import com.resourceserver.emazontransactionsservice.configuration.exceptionhandler.util.CustomErrorResponse;
+import com.resourceserver.emazontransactionsservice.configuration.exceptionhandler.CustomErrorResponse;
 import com.resourceserver.emazontransactionsservice.domain.api.SupplyServicePort;
 import com.resourceserver.emazontransactionsservice.ports.driving.constants.MessageConstants;
-import com.resourceserver.emazontransactionsservice.ports.driving.constants.OpenApiConstants;
-import com.resourceserver.emazontransactionsservice.ports.driving.dto.SupplyRequestDto;
+import com.resourceserver.emazontransactionsservice.configuration.openapi.costants.OpenApiConstants;
+import com.resourceserver.emazontransactionsservice.ports.driving.dto.request.SupplyRequestDto;
 import com.resourceserver.emazontransactionsservice.ports.driving.mapper.SupplyToSupplyDtoMapper;
-import com.resourceserver.emazontransactionsservice.ports.driving.util.CustomApiResponse;
+import com.resourceserver.emazontransactionsservice.ports.driving.dto.response.CustomApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -54,7 +54,7 @@ public class SupplyController {
     @PostMapping
     public ResponseEntity<CustomApiResponse> addSupplyAndSaveTransaction(@RequestBody SupplyRequestDto supplyDto) {
 
-        supplyServicePort.addSupplyAndSaveTransaction(supplyDtoMapper.toDomain(supplyDto));
+        supplyServicePort.saveSupplyTransaction(supplyDtoMapper.toDomain(supplyDto));
 
         CustomApiResponse response = new CustomApiResponse(
                 HttpStatus.OK.value(),

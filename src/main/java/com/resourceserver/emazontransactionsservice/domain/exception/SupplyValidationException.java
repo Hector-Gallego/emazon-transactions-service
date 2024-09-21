@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SupplyValidationException extends RuntimeException{
 
-    List<String> errors;
+    private final List<String> errors;
 
     public SupplyValidationException( List<String>  errors){
         super(ErrorMessagesConstants.SUPPLY_VALIDATION_FAILED_ERROR_MESSAGE);

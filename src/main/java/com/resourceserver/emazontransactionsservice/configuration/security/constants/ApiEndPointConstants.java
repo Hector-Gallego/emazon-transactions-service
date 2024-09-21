@@ -1,4 +1,4 @@
-package com.resourceserver.emazontransactionsservice.configuration.constants;
+package com.resourceserver.emazontransactionsservice.configuration.security.constants;
 
 public class ApiEndPointConstants {
 

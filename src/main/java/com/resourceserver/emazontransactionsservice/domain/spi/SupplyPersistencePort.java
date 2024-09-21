@@ -3,5 +3,5 @@ package com.resourceserver.emazontransactionsservice.domain.spi;
 import com.resourceserver.emazontransactionsservice.domain.model.Supply;
 
 public interface SupplyPersistencePort {
-    void saveSupplyTransactions(Supply supply);
+    void saveSupplyTransaction(Supply supply);
 }

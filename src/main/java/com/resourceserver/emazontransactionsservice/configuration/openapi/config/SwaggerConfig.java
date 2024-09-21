@@ -1,6 +1,6 @@
-package com.resourceserver.emazontransactionsservice.configuration.openapi;
+package com.resourceserver.emazontransactionsservice.configuration.openapi.config;
 
-import com.resourceserver.emazontransactionsservice.ports.driving.constants.OpenApiConstants;
+import com.resourceserver.emazontransactionsservice.configuration.openapi.costants.OpenApiConstants;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;

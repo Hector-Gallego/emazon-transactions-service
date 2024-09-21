@@ -9,8 +9,6 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface SupplyToSupplyEntityMapper {
-
-    Supply toDomain(SupplyEntity supplyEntity);
     SupplyEntity toEntity(Supply supply);
 
 }

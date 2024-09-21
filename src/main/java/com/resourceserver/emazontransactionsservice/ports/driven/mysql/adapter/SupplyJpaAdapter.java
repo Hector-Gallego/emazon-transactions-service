@@ -15,9 +15,8 @@ public class SupplyJpaAdapter implements SupplyPersistencePort {
         this.supplyEntityMapper = supplyEntityMapper;
     }
 
-
     @Override
-    public void saveSupplyTransactions(Supply supply) {
+    public void saveSupplyTransaction(Supply supply) {
         supplyRepository.save(supplyEntityMapper.toEntity(supply));
     }
 }

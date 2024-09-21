@@ -5,19 +5,21 @@ import java.time.LocalDateTime;
 public class Supply {
 
     private Long id;
-    private String name;
-    private Integer articleId;
+    private Long articleId;
     private Integer quantity;
+    private String articleName;
+    private Long userId;
     private LocalDateTime transactionDate;
 
     public Supply() {
     }
 
-    public Supply(Long id, String name, Integer articleId, Integer quantity, LocalDateTime transactionDate) {
+    public Supply(Long id, Long articleId, Integer quantity, String articleName, Long userId, LocalDateTime transactionDate) {
         this.id = id;
-        this.name = name;
         this.articleId = articleId;
         this.quantity = quantity;
+        this.articleName = articleName;
+        this.userId = userId;
         this.transactionDate = transactionDate;
     }
 
@@ -29,19 +31,11 @@ public class Supply {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getArticleId() {
+    public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Integer articleId) {
+    public void setArticleId(Long articleId) {
         this.articleId = articleId;
     }
 
@@ -51,6 +45,22 @@ public class Supply {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public String getArticleName() {
+        return articleName;
+    }
+
+    public void setArticleName(String articleName) {
+        this.articleName = articleName;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public LocalDateTime getTransactionDate() {

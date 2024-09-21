@@ -19,10 +19,10 @@ public class SupplyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private Long articleId;
     private Integer quantity;
-    private Integer articleId;
+    private String articleName;
+    private Long userId;
     private LocalDateTime transactionDate;
-
 
 }

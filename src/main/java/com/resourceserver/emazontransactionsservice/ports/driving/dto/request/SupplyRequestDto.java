@@ -1,4 +1,4 @@
-package com.resourceserver.emazontransactionsservice.ports.driving.dto;
+package com.resourceserver.emazontransactionsservice.ports.driving.dto.request;
 
 import com.resourceserver.emazontransactionsservice.ports.driving.constants.MessageConstants;
 import jakarta.validation.constraints.NotBlank;
@@ -16,7 +16,7 @@ public class SupplyRequestDto {
 
     @NotNull(message = MessageConstants.ARTICLE_ID_NOT_NULL_OR_BLANK )
     @NotBlank(message = MessageConstants.ARTICLE_ID_NOT_NULL_OR_BLANK)
-    private Integer articleId;
+    private Long articleId;
 
     @NotNull(message = MessageConstants.QUANTITY_NOT_NULL_OR_BLANK)
     @NotBlank(message = MessageConstants.QUANTITY_NOT_NULL_OR_BLANK)
@@ -24,5 +24,5 @@ public class SupplyRequestDto {
 
     @NotNull(message = MessageConstants.NAME_NOT_NULL_OR_BLANK)
     @NotBlank(message = MessageConstants.NAME_NOT_NULL_OR_BLANK )
-    private String name;
+    private String articleName;
 }

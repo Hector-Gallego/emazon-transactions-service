@@ -1,4 +1,4 @@
-package com.resourceserver.emazontransactionsservice.configuration.security;
+package com.resourceserver.emazontransactionsservice.configuration.security.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

@@ -1,8 +1,8 @@
-package com.resourceserver.emazontransactionsservice.configuration.security;
+package com.resourceserver.emazontransactionsservice.configuration.security.config;
 
-import com.resourceserver.emazontransactionsservice.configuration.constants.ApiEndPointConstants;
-import com.resourceserver.emazontransactionsservice.configuration.constants.RoleNameConstants;
-import com.resourceserver.emazontransactionsservice.configuration.constants.SecurityConstants;
+import com.resourceserver.emazontransactionsservice.configuration.security.constants.ApiEndPointConstants;
+import com.resourceserver.emazontransactionsservice.configuration.security.constants.RoleNameConstants;
+import com.resourceserver.emazontransactionsservice.configuration.security.constants.SecurityConstants;
 import com.resourceserver.emazontransactionsservice.configuration.exceptionhandler.DelegateAccessDeniedHandler;
 import com.resourceserver.emazontransactionsservice.configuration.exceptionhandler.DelegateAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
@@ -64,7 +64,7 @@ public class SecurityConfig {
     public JwtAuthenticationConverter jwtAuthenticationConverter(){
 
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        jwtGrantedAuthoritiesConverter.setAuthoritiesClaimName(SecurityConstants.CLAIM_FIELD_NAME);
+        jwtGrantedAuthoritiesConverter.setAuthoritiesClaimName(SecurityConstants.CLAIM_FIELD_NAME_ROLE);
         jwtGrantedAuthoritiesConverter.setAuthorityPrefix(SecurityConstants.EMPTY_FIELD);
 
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();

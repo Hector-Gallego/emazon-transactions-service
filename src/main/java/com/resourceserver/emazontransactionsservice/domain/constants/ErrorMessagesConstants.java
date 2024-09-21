@@ -7,8 +7,7 @@ public final class ErrorMessagesConstants {
     }
 
     public static final String SUPPLY_VALIDATION_FAILED_ERROR_MESSAGE = "Supply validation failed due to the following errors.";
-    public static final String QUANTITY_MUST_BE_GREATER_THAN_ZERO = "Quantity must be greater than zero.";
-    public static final String ARTICLE_ID_MUST_BE_GREATER_THAN_ZERO = "Article ID must be greater than zero.";
+    public static final String QUANTITY_MUST_BE_GREATER_THAN_ONE = "Quantity must be greater than one.";
     public static final String NAME_MUST_NOT_BE_NULL_OR_EMPTY = "Name must not be null or empty.";
 
 }
