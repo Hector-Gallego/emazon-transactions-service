@@ -1,5 +1,6 @@
 package com.resourceserver.emazontransactionsservice.domain.usecase;
 import com.resourceserver.emazontransactionsservice.domain.api.SupplyServicePort;
+import com.resourceserver.emazontransactionsservice.domain.feign.SupplyTransactionFeignPort;
 import com.resourceserver.emazontransactionsservice.domain.model.Supply;
 import com.resourceserver.emazontransactionsservice.domain.security.AuthenticatedManagerPort;
 import com.resourceserver.emazontransactionsservice.domain.spi.SupplyPersistencePort;
@@ -7,7 +8,7 @@ import com.resourceserver.emazontransactionsservice.domain.validator.SupplyValid
 
 import java.time.LocalDateTime;
 
-public class SupplyTransactionUseCase implements SupplyServicePort {
+public class SupplyTransactionUseCase implements SupplyTransactionFeignPort {
 
 
     private final SupplyPersistencePort supplyPersistencePort;

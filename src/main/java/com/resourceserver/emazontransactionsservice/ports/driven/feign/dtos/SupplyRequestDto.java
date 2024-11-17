@@ -1,4 +1,4 @@
-package com.resourceserver.emazontransactionsservice.ports.driving.dto.request;
+package com.resourceserver.emazontransactionsservice.ports.driven.feign.dtos;
 
 import com.resourceserver.emazontransactionsservice.ports.driving.constants.MessageConstants;
 import jakarta.validation.constraints.NotBlank;

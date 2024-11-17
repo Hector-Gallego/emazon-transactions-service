@@ -1,12 +1,13 @@
 package com.resourceserver.emazontransactionsservice.ports.driving.controller;
 
+
 import com.resourceserver.emazontransactionsservice.configuration.exceptionhandler.CustomErrorResponse;
-import com.resourceserver.emazontransactionsservice.domain.api.SupplyServicePort;
-import com.resourceserver.emazontransactionsservice.ports.driving.constants.MessageConstants;
-import com.resourceserver.emazontransactionsservice.configuration.openapi.costants.OpenApiConstants;
-import com.resourceserver.emazontransactionsservice.ports.driving.dto.request.SupplyRequestDto;
-import com.resourceserver.emazontransactionsservice.ports.driving.mapper.SupplyToSupplyDtoMapper;
+import com.resourceserver.emazontransactionsservice.domain.api.SupplyTransactionOrchestrationApiPort;
+import com.resourceserver.emazontransactionsservice.domain.constants.SuccessMessagesConstants;
+import com.resourceserver.emazontransactionsservice.ports.driving.constants.OpenApiConstants;
+import com.resourceserver.emazontransactionsservice.ports.driving.dto.request.SupplyTransactionOrchestratorRequestDto;
 import com.resourceserver.emazontransactionsservice.ports.driving.dto.response.CustomApiResponse;
+import com.resourceserver.emazontransactionsservice.ports.driving.mapper.SupplyTransactionOrchestratorMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,24 +23,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/api/supply")
-public class SupplyController {
+@RequestMapping("/api/transactions")
+public class SupplyTransactionOrchestratorController {
 
-    private final SupplyServicePort supplyServicePort;
-    private final SupplyToSupplyDtoMapper supplyDtoMapper;
 
-    public SupplyController(SupplyServicePort supplyServicePort, SupplyToSupplyDtoMapper supplyDtoMapper) {
-        this.supplyServicePort = supplyServicePort;
-        this.supplyDtoMapper = supplyDtoMapper;
+
+    private final SupplyTransactionOrchestrationApiPort orchestrateSupplyPort;
+    private final SupplyTransactionOrchestratorMapper supplyTransactionOrchestratorMapper;
+
+    public SupplyTransactionOrchestratorController(SupplyTransactionOrchestrationApiPort orchestrateSupplyPort, SupplyTransactionOrchestratorMapper supplyTransactionOrchestratorMapper) {
+        this.orchestrateSupplyPort = orchestrateSupplyPort;
+        this.supplyTransactionOrchestratorMapper = supplyTransactionOrchestratorMapper;
     }
 
 
-    @Operation(summary = OpenApiConstants.OPENAPI_ADD_SUPPLY_SUMMARY,
-            description = OpenApiConstants.OPENAPI_ADD_SUPPLY_DESCRIPTION)
+    @Operation(summary = OpenApiConstants.OPENAPI_ORCHESTRATION_SUPPLY_SUMMARY,
+            description = OpenApiConstants.OPENAPI_ORCHESTRATION_SUPPLY_DESCRIPTION)
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = OpenApiConstants.OPENAPI_CODE_200,
-                    description = OpenApiConstants.SUPPLY_ADDED,
+                    description = OpenApiConstants.ORCHESTRATION_SUPPLY_SUCCESS,
                     content = @Content(mediaType = OpenApiConstants.OPENAPI_MEDIA_TYPE_JSON,
                             schema = @Schema(implementation = CustomApiResponse.class))),
             @ApiResponse(responseCode = OpenApiConstants.OPENAPI_CODE_400,
@@ -51,18 +54,17 @@ public class SupplyController {
                     content = @Content(mediaType = OpenApiConstants.OPENAPI_MEDIA_TYPE_JSON,
                             schema = @Schema(implementation = CustomErrorResponse.class)))
     })
-    @PostMapping
-    public ResponseEntity<CustomApiResponse> addSupplyAndSaveTransaction(@RequestBody SupplyRequestDto supplyDto) {
-
-        supplyServicePort.saveSupplyTransaction(supplyDtoMapper.toDomain(supplyDto));
+    @PostMapping("/supply")
+    public ResponseEntity<CustomApiResponse> orchestrateSupply(@RequestBody SupplyTransactionOrchestratorRequestDto SupplyTransactionOrchestratorRequestDto) {
+        orchestrateSupplyPort.orchestrateSupplyTransaction(supplyTransactionOrchestratorMapper.toDomain(SupplyTransactionOrchestratorRequestDto));
 
         CustomApiResponse response = new CustomApiResponse(
                 HttpStatus.OK.value(),
-                MessageConstants.SUPPLY_ADDED_SUCCESS,
+                SuccessMessagesConstants.ADD_STOCK_AND_SUPPLY_TRANSACTION_SUCCESS,
                 LocalDateTime.now()
         );
 
-        return ResponseEntity.ok().body(response);
-
+        return ResponseEntity.ok(response);
     }
+
 }

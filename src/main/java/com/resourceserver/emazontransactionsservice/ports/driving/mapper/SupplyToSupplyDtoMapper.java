@@ -1,7 +1,7 @@
 package com.resourceserver.emazontransactionsservice.ports.driving.mapper;
 
 import com.resourceserver.emazontransactionsservice.domain.model.Supply;
-import com.resourceserver.emazontransactionsservice.ports.driving.dto.request.SupplyRequestDto;
+import com.resourceserver.emazontransactionsservice.ports.driven.feign.dtos.SupplyRequestDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
