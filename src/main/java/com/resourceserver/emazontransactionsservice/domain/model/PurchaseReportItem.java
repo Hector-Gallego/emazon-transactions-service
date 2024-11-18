@@ -1,16 +1,16 @@
 package com.resourceserver.emazontransactionsservice.domain.model;
 
-public class ItemSaleData {
+public class PurchaseReportItem {
     private Long articleId;
     private String articleName;
     private Integer articleQuantity;
     private String articleDescription;
     private Double articlePrice;
 
-    public ItemSaleData() {
+    public PurchaseReportItem() {
     }
 
-    public ItemSaleData(Long articleId, String articleName, Integer articleQuantity, String articleDescription, Double articlePrice) {
+    public PurchaseReportItem(Long articleId, String articleName, Integer articleQuantity, String articleDescription, Double articlePrice) {
         this.articleId = articleId;
         this.articleName = articleName;
         this.articleQuantity = articleQuantity;

@@ -1,6 +1,6 @@
 package com.resourceserver.emazontransactionsservice.ports.driven.mysql.mapper;
 
-import com.resourceserver.emazontransactionsservice.domain.model.Supply;
+import com.resourceserver.emazontransactionsservice.domain.model.SupplyReport;
 import com.resourceserver.emazontransactionsservice.ports.driven.mysql.entity.SupplyEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -9,6 +9,6 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface SupplyToSupplyEntityMapper {
-    SupplyEntity toEntity(Supply supply);
+    SupplyEntity toEntity(SupplyReport supplyReport);
 
 }

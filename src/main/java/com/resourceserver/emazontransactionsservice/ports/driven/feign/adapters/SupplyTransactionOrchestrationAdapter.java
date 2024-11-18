@@ -5,7 +5,7 @@ import com.resourceserver.emazontransactionsservice.domain.exception.SupplyOrche
 import com.resourceserver.emazontransactionsservice.domain.exception.TransactionCreationException;
 import com.resourceserver.emazontransactionsservice.domain.feign.SupplyTransactionFeignPort;
 import com.resourceserver.emazontransactionsservice.domain.feign.SupplyTransactionOrchestrationFeignPort;
-import com.resourceserver.emazontransactionsservice.domain.model.Supply;
+import com.resourceserver.emazontransactionsservice.domain.model.SupplyReport;
 import com.resourceserver.emazontransactionsservice.domain.model.SupplyTransactionDetails;
 import com.resourceserver.emazontransactionsservice.domain.security.AuthenticatedManagerPort;
 import com.resourceserver.emazontransactionsservice.ports.driven.feign.interfaces.StockMicroServiceFeignClient;
@@ -55,15 +55,15 @@ public class SupplyTransactionOrchestrationAdapter implements SupplyTransactionO
             stockUpdated = true;
 
             try {
-                Supply supply = new Supply();
+                SupplyReport supplyReport = new SupplyReport();
 
-                supply.setArticleId(supplyTransactionDetails.getArticleId());
-                supply.setArticleName(supplyTransactionDetails.getArticleName());
-                supply.setQuantity(supplyTransactionDetails.getQuantity());
-                supply.setTransactionDate(LocalDateTime.now());
-                supply.setUserId(authenticatedManagerPort.getUserId());
+                supplyReport.setArticleId(supplyTransactionDetails.getArticleId());
+                supplyReport.setArticleName(supplyTransactionDetails.getArticleName());
+                supplyReport.setQuantity(supplyTransactionDetails.getQuantity());
+                supplyReport.setTransactionDate(LocalDateTime.now());
+                supplyReport.setUserId(authenticatedManagerPort.getUserId());
 
-                supplyTransactionFeignPort.saveSupplyTransaction(supply);
+                supplyTransactionFeignPort.saveSupplyTransaction(supplyReport);
 
             } catch (Exception e) {
                 throw new TransactionCreationException();

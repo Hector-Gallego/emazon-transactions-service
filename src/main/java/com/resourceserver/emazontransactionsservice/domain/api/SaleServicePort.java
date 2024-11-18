@@ -1,9 +1,9 @@
 package com.resourceserver.emazontransactionsservice.domain.api;
 
-import com.resourceserver.emazontransactionsservice.domain.model.Sale;
+import com.resourceserver.emazontransactionsservice.domain.model.SaleReport;
 
 public interface SaleServicePort {
 
-    Long saveSale(Sale sale);
+    Long saveSaleTransactionReport(SaleReport saleReport);
     void deleteSale(Long id);
 }

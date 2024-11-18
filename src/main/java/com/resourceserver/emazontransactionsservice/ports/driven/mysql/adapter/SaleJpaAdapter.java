@@ -1,6 +1,6 @@
 package com.resourceserver.emazontransactionsservice.ports.driven.mysql.adapter;
 
-import com.resourceserver.emazontransactionsservice.domain.model.Sale;
+import com.resourceserver.emazontransactionsservice.domain.model.SaleReport;
 import com.resourceserver.emazontransactionsservice.domain.spi.SalePersistencePort;
 import com.resourceserver.emazontransactionsservice.ports.driven.mysql.entity.SaleEntity;
 import com.resourceserver.emazontransactionsservice.ports.driven.mysql.mapper.SaleToSaleEntityMapper;
@@ -17,8 +17,8 @@ public class SaleJpaAdapter implements SalePersistencePort {
     }
 
     @Override
-    public Sale saveSale(Sale sale) {
-        SaleEntity saleEntity = saleRepository.save(saleEntityMapper.toEntity(sale));
+    public SaleReport saveSale(SaleReport saleReport) {
+        SaleEntity saleEntity = saleRepository.save(saleEntityMapper.toEntity(saleReport));
         return saleEntityMapper.toDomain(saleEntity);
     }
 

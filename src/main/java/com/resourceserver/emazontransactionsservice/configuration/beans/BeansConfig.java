@@ -67,8 +67,15 @@ public class BeansConfig {
     PurchaseTransactionOrchestrationFeignPort purchaseTransactionOrchestrationFeignPort(
             ShoppingCartMicroserviceFeignClient shoppingCartMicroserviceFeignClient,
             StockMicroServiceFeignClient stockMicroServiceFeignClient,
-            ReportServiceFeignClient reportServiceFeignClient) {
-        return new PurchaseTransactionOrchestratorAdapter(shoppingCartMicroserviceFeignClient, stockMicroServiceFeignClient, reportServiceFeignClient);
+            ReportServiceFeignClient reportServiceFeignClient,
+            SaleServicePort saleServicePort,
+            AuthenticatedManagerPort authenticatedManagerPort) {
+        return new PurchaseTransactionOrchestratorAdapter(
+                shoppingCartMicroserviceFeignClient,
+                stockMicroServiceFeignClient,
+                reportServiceFeignClient,
+                saleServicePort,
+                authenticatedManagerPort);
     }
 
     @Bean

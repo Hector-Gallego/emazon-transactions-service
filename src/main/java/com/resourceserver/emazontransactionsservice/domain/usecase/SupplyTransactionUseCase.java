@@ -1,7 +1,6 @@
 package com.resourceserver.emazontransactionsservice.domain.usecase;
-import com.resourceserver.emazontransactionsservice.domain.api.SupplyServicePort;
 import com.resourceserver.emazontransactionsservice.domain.feign.SupplyTransactionFeignPort;
-import com.resourceserver.emazontransactionsservice.domain.model.Supply;
+import com.resourceserver.emazontransactionsservice.domain.model.SupplyReport;
 import com.resourceserver.emazontransactionsservice.domain.security.AuthenticatedManagerPort;
 import com.resourceserver.emazontransactionsservice.domain.spi.SupplyPersistencePort;
 import com.resourceserver.emazontransactionsservice.domain.validator.SupplyValidator;
@@ -21,11 +20,11 @@ public class SupplyTransactionUseCase implements SupplyTransactionFeignPort {
     }
 
     @Override
-    public void saveSupplyTransaction(Supply supply) {
+    public void saveSupplyTransaction(SupplyReport supplyReport) {
 
-        SupplyValidator.validateSupply(supply);
-        supply.setUserId(authenticatedManagerPort.getUserId());
-        supply.setTransactionDate(LocalDateTime.now());
-        supplyPersistencePort.saveSupplyTransaction(supply);
+        SupplyValidator.validateSupply(supplyReport);
+        supplyReport.setUserId(authenticatedManagerPort.getUserId());
+        supplyReport.setTransactionDate(LocalDateTime.now());
+        supplyPersistencePort.saveSupplyTransaction(supplyReport);
     }
 }

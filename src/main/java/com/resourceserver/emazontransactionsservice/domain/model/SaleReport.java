@@ -3,17 +3,17 @@ package com.resourceserver.emazontransactionsservice.domain.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Sale {
+public class SaleReport {
 
     private Long id;
     private Long userId;
     private List<CartItem> cartItemList;
     private LocalDateTime saleDate;
 
-    public Sale() {
+    public SaleReport() {
     }
 
-    public Sale(Long id, Long userId, List<CartItem> cartItemList, LocalDateTime saleDate) {
+    public SaleReport(Long id, Long userId, List<CartItem> cartItemList, LocalDateTime saleDate) {
         this.id = id;
         this.userId = userId;
         this.cartItemList = cartItemList;

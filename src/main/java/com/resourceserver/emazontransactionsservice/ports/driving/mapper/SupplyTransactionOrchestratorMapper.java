@@ -11,5 +11,5 @@ import org.mapstruct.ReportingPolicy;
 public interface SupplyTransactionOrchestratorMapper {
 
     SupplyTransactionDetails toDomain(SupplyTransactionOrchestratorRequestDto SupplyTransactionOrchestratorRequestDto);
-    SupplyTransactionOrchestratorRequestDto toDto(SupplyTransactionDetails supplyTransactionDetails);
+
 }

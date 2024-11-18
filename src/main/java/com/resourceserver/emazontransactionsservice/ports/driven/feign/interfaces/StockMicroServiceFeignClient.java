@@ -2,7 +2,7 @@ package com.resourceserver.emazontransactionsservice.ports.driven.feign.interfac
 
 
 import com.resourceserver.emazontransactionsservice.domain.model.CartItem;
-import com.resourceserver.emazontransactionsservice.domain.model.SaleData;
+import com.resourceserver.emazontransactionsservice.domain.model.PurchaseReport;
 import com.resourceserver.emazontransactionsservice.ports.driven.feign.constants.MicroServicesDataConstants;
 import com.resourceserver.emazontransactionsservice.ports.driving.dto.request.StockRequestDto;
 import com.resourceserver.emazontransactionsservice.ports.driving.dto.response.CustomApiResponse;
@@ -23,7 +23,7 @@ public interface StockMicroServiceFeignClient {
     ResponseEntity<CustomApiResponse> addSupply(@RequestBody StockRequestDto stockRequestDto);
 
     @PostMapping("/api/stock/update")
-    ResponseEntity<SaleData> updateStockAndGetSaleData(@RequestBody List<CartItem> cartItems);
+    ResponseEntity<PurchaseReport> updateStockAndGetSaleData(@RequestBody List<CartItem> cartItems);
 
     @PostMapping("api/stock/updateCompensation")
     ResponseEntity<Void> updateStockCompensation(@RequestBody List<CartItem> cartItems);

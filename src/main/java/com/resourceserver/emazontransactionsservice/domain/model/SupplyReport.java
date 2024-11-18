@@ -2,7 +2,7 @@ package com.resourceserver.emazontransactionsservice.domain.model;
 
 import java.time.LocalDateTime;
 
-public class Supply {
+public class SupplyReport {
 
     private Long id;
     private Long articleId;
@@ -11,10 +11,10 @@ public class Supply {
     private Long userId;
     private LocalDateTime transactionDate;
 
-    public Supply() {
+    public SupplyReport() {
     }
 
-    public Supply(Long id, Long articleId, Integer quantity, String articleName, Long userId, LocalDateTime transactionDate) {
+    public SupplyReport(Long id, Long articleId, Integer quantity, String articleName, Long userId, LocalDateTime transactionDate) {
         this.id = id;
         this.articleId = articleId;
         this.quantity = quantity;

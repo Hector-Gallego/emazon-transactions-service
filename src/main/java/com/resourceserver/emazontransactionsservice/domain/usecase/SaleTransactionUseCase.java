@@ -1,7 +1,7 @@
 package com.resourceserver.emazontransactionsservice.domain.usecase;
 
 import com.resourceserver.emazontransactionsservice.domain.api.SaleServicePort;
-import com.resourceserver.emazontransactionsservice.domain.model.Sale;
+import com.resourceserver.emazontransactionsservice.domain.model.SaleReport;
 import com.resourceserver.emazontransactionsservice.domain.security.AuthenticatedManagerPort;
 import com.resourceserver.emazontransactionsservice.domain.spi.SalePersistencePort;
 
@@ -18,13 +18,13 @@ public class SaleTransactionUseCase implements SaleServicePort {
     }
 
     @Override
-    public Long saveSale(Sale sale) {
+    public Long saveSaleTransactionReport(SaleReport saleReport) {
 
         Long userId = authenticatedManagerPort.getUserId();
-        sale.setSaleDate(LocalDateTime.now());
-        sale.setUserId(userId);
-        Sale persistSale = salePersistencePort.saveSale(sale);
-        return persistSale.getId();
+        saleReport.setSaleDate(LocalDateTime.now());
+        saleReport.setUserId(userId);
+        SaleReport persistSaleReport = salePersistencePort.saveSale(saleReport);
+        return persistSaleReport.getId();
 
     }
 

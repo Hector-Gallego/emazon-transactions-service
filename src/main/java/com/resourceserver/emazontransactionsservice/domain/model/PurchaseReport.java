@@ -3,24 +3,24 @@ package com.resourceserver.emazontransactionsservice.domain.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class SaleData {
+public class PurchaseReport {
 
-    private List<ItemSaleData> itemsSaleData;
+    private List<PurchaseReportItem> itemsSaleData;
     private BigDecimal totalPurchase;
 
-    public SaleData() {
+    public PurchaseReport() {
     }
 
-    public SaleData(List<ItemSaleData> itemsSaleData, BigDecimal totalPurchase) {
+    public PurchaseReport(List<PurchaseReportItem> itemsSaleData, BigDecimal totalPurchase) {
         this.itemsSaleData = itemsSaleData;
         this.totalPurchase = totalPurchase;
     }
 
-    public List<ItemSaleData> getItemsSaleData() {
+    public List<PurchaseReportItem> getItemsSaleData() {
         return itemsSaleData;
     }
 
-    public void setItemsSaleData(List<ItemSaleData> itemsSaleData) {
+    public void setItemsSaleData(List<PurchaseReportItem> itemsSaleData) {
         this.itemsSaleData = itemsSaleData;
     }
 

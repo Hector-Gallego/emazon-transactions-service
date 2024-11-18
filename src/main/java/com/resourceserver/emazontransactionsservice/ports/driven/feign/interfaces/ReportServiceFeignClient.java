@@ -1,6 +1,6 @@
 package com.resourceserver.emazontransactionsservice.ports.driven.feign.interfaces;
 
-import com.resourceserver.emazontransactionsservice.domain.model.SaleData;
+import com.resourceserver.emazontransactionsservice.domain.model.PurchaseReport;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface ReportServiceFeignClient {
 
     @PostMapping("/api/reports/saveReport")
-    ResponseEntity<Long> saveReport(SaleData saleData);
+    ResponseEntity<String> saveReport(PurchaseReport purchaseReport);
 
     @DeleteMapping("api/reports/delete/report/{reportId}")
     ResponseEntity<Void> deleteReportById(@PathVariable Long reportId);

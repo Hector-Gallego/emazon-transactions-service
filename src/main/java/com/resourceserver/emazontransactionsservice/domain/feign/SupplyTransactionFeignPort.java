@@ -1,7 +1,7 @@
 package com.resourceserver.emazontransactionsservice.domain.feign;
 
-import com.resourceserver.emazontransactionsservice.domain.model.Supply;
+import com.resourceserver.emazontransactionsservice.domain.model.SupplyReport;
 
 public interface SupplyTransactionFeignPort {
-    void saveSupplyTransaction(Supply supply);
+    void saveSupplyTransaction(SupplyReport supplyReport);
 }

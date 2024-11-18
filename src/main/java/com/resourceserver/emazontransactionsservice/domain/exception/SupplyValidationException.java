@@ -1,6 +1,7 @@
 package com.resourceserver.emazontransactionsservice.domain.exception;
 
-import com.resourceserver.emazontransactionsservice.domain.constants.ErrorMessagesConstants;
+import com.resourceserver.emazontransactionsservice.domain.constants.ErrorMessageConstants;
+
 import java.util.List;
 
 public class SupplyValidationException extends RuntimeException{
@@ -8,7 +9,7 @@ public class SupplyValidationException extends RuntimeException{
     private final List<String> errors;
 
     public SupplyValidationException( List<String>  errors){
-        super(ErrorMessagesConstants.SUPPLY_VALIDATION_FAILED_ERROR_MESSAGE);
+        super(ErrorMessageConstants.SUPPLY_VALIDATION_FAILED_ERROR_MESSAGE);
         this.errors = errors;
     }
 
